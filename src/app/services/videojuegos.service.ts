@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class VideojuegosService {
 
    // Ruta base del backend (ajustada a rutas específicas de videojuegos)
-  baseUri: string = 'http://localhost:4000/api/videojuegos';
+  baseUri: string = 'https://backendvideojuegos-4dm4.onrender.com/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {}
