@@ -1,0 +1,157 @@
+<div class="gaming-container">
+  <div class="form-wrapper">
+    <div class="form-header">
+      <h1 class="gaming-title">
+        <span class="title-icon">➕</span>
+        Agregar Videojuego
+        <span class="title-glow"></span>
+      </h1>
+      <div class="subtitle">Añade un nuevo juego a tu biblioteca</div>
+    </div>
+
+    <div class="gaming-form-card">
+      <div class="card-glow"></div>
+      
+      <form [formGroup]="videojuegoForm" (ngSubmit)="onSubmit()" class="gaming-form">
+        
+        <!-- Campo Título -->
+        <div class="form-group">
+          <label for="titulo" class="form-label">
+            <span class="label-icon">🎮</span>
+            Título del Juego
+          </label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              class="gaming-input" 
+              id="titulo" 
+              formControlName="titulo"
+              placeholder="Ingresa el título del videojuego"
+            >
+            <div class="input-border"></div>
+          </div>
+          @if(enviado && myForm['titulo'].errors?.['required']) {
+            <div class="error-message">
+              <span class="error-icon">⚠️</span>
+              El título es requerido.
+            </div>
+          }
+        </div>
+
+        <!-- Campo Desarrollador -->
+        <div class="form-group">
+          <label for="desarrollador" class="form-label">
+            <span class="label-icon">👨‍💻</span>
+            Desarrollador
+          </label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              class="gaming-input" 
+              id="desarrollador" 
+              formControlName="desarrollador"
+              placeholder="Nombre del desarrollador"
+            >
+            <div class="input-border"></div>
+          </div>
+          @if(enviado && myForm['desarrollador'].errors?.['required']) {
+            <div class="error-message">
+              <span class="error-icon">⚠️</span>
+              El desarrollador es requerido.
+            </div>
+          }
+        </div>
+
+        <!-- Campo Plataforma -->
+        <div class="form-group">
+          <label for="plataforma" class="form-label">
+            <span class="label-icon">🖥️</span>
+            Plataforma
+          </label>
+          <div class="select-wrapper">
+            <select class="gaming-select" id="plataforma" formControlName="plataforma">
+              <option value="">Seleccionar plataforma</option>
+              @for (p of plataformas; track p) {
+                <option [value]="p">{{ p }}</option>
+              }
+            </select>
+            <div class="select-arrow">▼</div>
+            <div class="input-border"></div>
+          </div>
+          @if(enviado && myForm['plataforma'].errors?.['required']) {
+            <div class="error-message">
+              <span class="error-icon">⚠️</span>
+              La plataforma es requerida.
+            </div>
+          }
+        </div>
+
+        <!-- Campo Año -->
+        <div class="form-group">
+          <label for="anio" class="form-label">
+            <span class="label-icon">📅</span>
+            Año de Lanzamiento
+          </label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              class="gaming-input" 
+              id="anio" 
+              formControlName="anio"
+              placeholder="2024"
+            >
+            <div class="input-border"></div>
+          </div>
+          @if(enviado && myForm['anio'].errors?.['required']) {
+            <div class="error-message">
+              <span class="error-icon">⚠️</span>
+              El año es requerido.
+            </div>
+          }
+          @if(enviado && myForm['anio'].errors?.['pattern']) {
+            <div class="error-message">
+              <span class="error-icon">⚠️</span>
+              Debe ser un año válido (ej. 2023).
+            </div>
+          }
+        </div>
+
+        <!-- Campo Género -->
+        <div class="form-group">
+          <label for="genero" class="form-label">
+            <span class="label-icon">🎯</span>
+            Género
+          </label>
+          <div class="select-wrapper">
+            <select class="gaming-select" id="genero" formControlName="genero">
+              <option value="">Seleccionar género</option>
+              @for (g of generos; track g) {
+                <option [value]="g">{{ g }}</option>
+              }
+            </select>
+            <div class="select-arrow">▼</div>
+            <div class="input-border"></div>
+          </div>
+          @if(enviado && myForm['genero'].errors?.['required']) {
+            <div class="error-message">
+              <span class="error-icon">⚠️</span>
+              El género es requerido.
+            </div>
+          }
+        </div>
+
+        <!-- Botón Submit -->
+        <div class="submit-section">
+          <button type="submit" class="gaming-submit-btn add-btn">
+            <span class="btn-content">
+              <span class="btn-icon">🚀</span>
+              <span class="btn-text">Agregar Videojuego</span>
+            </span>
+            <div class="btn-glow"></div>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

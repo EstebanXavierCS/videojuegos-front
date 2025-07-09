@@ -1,0 +1,72 @@
+<nav class="gaming-navbar">
+  <div class="navbar-container">
+    <!-- Logo/Brand -->
+    <div class="navbar-brand">
+      <span class="brand-icon">🎮</span>
+      <span class="brand-text">MUNDO GAMER</span>
+      <div class="brand-glow"></div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="navbar-menu">
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a class="nav-link" 
+             routerLinkActive="active" 
+             routerLink="/listar-juegos"
+             [routerLinkActiveOptions]="{exact: false}">
+            <span class="link-icon">📚</span>
+            <span class="link-text">Biblioteca</span>
+            <div class="link-glow"></div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+             routerLinkActive="active" 
+             routerLink="/agregar-juegos">
+            <span class="link-icon">➕</span>
+            <span class="link-text">Agregar Juego</span>
+            <div class="link-glow"></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Mobile Menu Toggle (CSS only) -->
+    <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+    <label for="mobile-menu-toggle" class="mobile-menu-btn">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </label>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul class="mobile-nav-links">
+        <li class="mobile-nav-item">
+          <a class="mobile-nav-link" 
+             routerLinkActive="active" 
+             routerLink="/listar-juegos">
+            <span class="link-icon">📚</span>
+            <span class="link-text">Biblioteca</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a class="mobile-nav-link" 
+             routerLinkActive="active" 
+             routerLink="/agregar-juegos">
+            <span class="link-icon">➕</span>
+            <span class="link-text">Agregar Juego</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Navbar Background Effects -->
+  <div class="navbar-bg-effect"></div>
+</nav>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,57 @@
+<div class="gaming-container">
+  <div class="header-section">
+    <h1 class="gaming-title">
+      <span class="title-icon">🎮</span>
+      Biblioteca de Videojuegos
+      <span class="title-glow"></span>
+    </h1>
+  </div>
+
+  @if (listaVideojuegos.length <= 0) {
+    <div class="empty-state">
+      <div class="empty-icon">🎯</div>
+      <h3>No hay videojuegos en tu biblioteca</h3>
+      <p>Comienza agregando tus juegos favoritos</p>
+    </div>
+  } @else {
+    <div class="games-grid">
+      @for (videojuego of listaVideojuegos; track videojuego._id; let i = $index) {
+        <div class="game-card">
+          <div class="card-header">
+            <div class="game-id">#{{videojuego.numeroVideojuego}}</div>
+            <div class="card-actions">
+              <a class="action-btn edit-btn" [routerLink]="['/editar-juegos', videojuego._id]">
+                <span class="btn-icon">✏️</span>
+              </a>
+              <button (click)="eliminarVideojuego(videojuego, i)" class="action-btn delete-btn">
+                <span class="btn-icon">🗑️</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <h3 class="game-title">{{videojuego.titulo}}</h3>
+            <div class="game-developer">{{videojuego.desarrollador}}</div>
+            
+            <div class="game-details">
+              <div class="detail-row">
+                <span class="detail-label">Plataforma</span>
+                <span class="platform-badge">{{videojuego.plataforma}}</span>
+              </div>
+              
+              <div class="detail-row">
+                <span class="detail-label">Año</span>
+                <span class="year-badge">{{videojuego.anio}}</span>
+              </div>
+              
+              <div class="detail-row">
+                <span class="detail-label">Género</span>
+                <span class="genre-badge">{{videojuego.genero}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>
